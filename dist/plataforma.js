@@ -1,18 +1,27 @@
 export class Plataforma {
-    constructor(nombre, logo, descripcion, patrocinador, aplicacion) {
+    constructor(nombre, logo, descripcion, patrocinador) {
         this.nombre = nombre;
         this.logo = logo;
         this.descripcion = descripcion;
         this.patrocinador = patrocinador;
         this.canales = [];
+    }
+    agregarAplicacion(aplicacion) {
         this.aplicacion = aplicacion;
     }
-    agregarCanal(canales) {
-        canales.forEach((canal) => {
-            canal.agregarPlataforma(this);
-        });
+    agregarCanal(canal) {
+        this.canales.push(canal);
+        canal.agregarPlataforma(this);
     }
-    mostrarPlataformas() {
-        console.log();
+    mostrarDetallePlataforma() {
+        console.log(this);
+    }
+    listarCanales() {
+        console.log(this.canales);
+    }
+    listarStreamers() {
+        this.canales.forEach((canal) => {
+            canal.mostrarStreamer();
+        });
     }
 }

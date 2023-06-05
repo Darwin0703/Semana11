@@ -3,5 +3,12 @@ export class Categoria {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
+        this.streamings = [];
+    }
+    agregarStream(stream) {
+        this.streamings.push(stream);
+    }
+    listarStreams() {
+        console.log(this.streamings);
     }
 }

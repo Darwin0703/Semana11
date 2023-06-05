@@ -1,8 +1,14 @@
 export class Streamer {
-    constructor(nickName, descripcion, redesSociales, canal) {
+    constructor(nickName, descripcion, redesSociales) {
         this.nickName = nickName;
         this.descripcion = descripcion;
         this.redesSociales = redesSociales;
-        this.canal = [canal];
+        this.canales = [];
+    }
+    agregarCanal(canal) {
+        this.canales.push(canal);
+    }
+    mostrarDetalleStreamer() {
+        console.log(this);
     }
 }

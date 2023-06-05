@@ -2,14 +2,22 @@ import { Canal } from "./canal.js";
 
 export class Streamer{
     nickName:string;
-    descripcion:string;
+    descripcion:string; 
     redesSociales:string;
-    canal:Canal[];
+    canales:Canal[];
 
-    constructor(nickName:string, descripcion:string, redesSociales:string, canal:Canal){
+    constructor(nickName:string, descripcion:string, redesSociales:string){
         this.nickName = nickName;
         this.descripcion = descripcion;
         this.redesSociales = redesSociales;
-        this.canal = [canal];
+        this.canales = [];
+    }
+
+    agregarCanal(canal:Canal):void{
+        this.canales.push(canal);
+    }
+
+    mostrarDetalleStreamer():void{
+        console.log(this);
     }
 }

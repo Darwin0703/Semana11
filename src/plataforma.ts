@@ -7,24 +7,35 @@ export class Plataforma{
     descripcion:string;
     patrocinador:string;
     canales:Canal[];
-    aplicacion:Aplicacion;
+    aplicacion:Aplicacion | undefined;
 
-    constructor(nombre:string, logo:string, descripcion:string, patrocinador:string, aplicacion:Aplicacion){
+    constructor(nombre:string, logo:string, descripcion:string, patrocinador:string){
         this.nombre = nombre;
         this.logo = logo;
         this.descripcion = descripcion;
         this.patrocinador = patrocinador;
         this.canales = [];
-        this.aplicacion = aplicacion;
     }    
+    agregarAplicacion(aplicacion:Aplicacion):void{
+        this.aplicacion = aplicacion;
+    }
+    
+    agregarCanal(canal:Canal):void{
+        this.canales.push(canal);
+        canal.agregarPlataforma(this);
+    }   
 
-    agregarCanal(canales:Canal[]):void{
-        canales.forEach((canal) => {
-            canal.agregarPlataforma(this);
-        });
+    mostrarDetallePlataforma():void{
+        console.log(this);   
     }
 
-    mostrarPlataformas():void{
-        console.log()
+    listarCanales():void{
+        console.log(this.canales);
+    }
+
+    listarStreamers():void{
+        this.canales.forEach((canal)=>{
+            canal.mostrarStreamer()
+        });
     }
 }
