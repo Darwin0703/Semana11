@@ -1,4 +1,5 @@
 import { Canal } from "./canal.js";
+import { Stream } from "./stream.js";
 
 export class Streamer{
     nickName:string;
@@ -19,5 +20,11 @@ export class Streamer{
 
     mostrarDetalleStreamer():void{
         console.log(this);
+    }
+
+    agregarStream(stream:Stream){
+        this.canales.forEach((canal)=>{
+            canal.agregarStream(stream);
+        });
     }
 }

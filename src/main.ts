@@ -26,14 +26,19 @@ plataforma2.mostrarDetallePlataforma();
 //Se crea el Streamer
 const streamer1 = new Streamer("Ninja", "Jugador de Fornite", "@ninja");
 const streamer2 = new Streamer("AuronPlay", "Jugador", "@AuronPlay");
+const streamer3 = new Streamer("Rubius", "Jugador", "@ElRubius");
 
 //Se crean objetos de tipo Canal y se pasa el Streamer
- const canal1 = new Canal("Ninja", "banner.img", "Canal de fornite", streamer1);
- const canal2 = new Canal ("Auron", "Banner.jpg", "Videojuegos", streamer2);
+const canal1 = new Canal("Ninja", "banner.img", "Canal de fornite", streamer1);
+const canal2 = new Canal ("Auron", "Banner.jpg", "Videojuegos", streamer2);
+const canal3 = new Canal ("Rubius", "Banner.png", "Varios", streamer3);
 
 //Se agregan los canales
 plataforma1.agregarCanal(canal1);
 plataforma1.agregarCanal(canal2);
+
+//Se agrega un canal a un streamer
+streamer3.agregarCanal(canal3);
 
 //Se listan los canales
 console.log("Listado de Canales: ")
@@ -60,9 +65,13 @@ const categoria2 = new Categoria("Reaccion", "stream de reacciones", "imagen.jpg
 //Se crea un objeto tipo Stream
 const Stream1 = new Stream(new Date(),"1.56 h", canal2, categoria2);
 const Stream2 = new Stream(new Date(),"0.52 h", canal1, categoria1);
+const Stream3 = new Stream(new Date(),"1.22 h", canal3, categoria1);
 
 categoria1.agregarStream(Stream1);
 categoria1.agregarStream(Stream2);
+
+//Se agrega un stream a un Streamer
+streamer3.agregarStream(Stream3);
 
 //Se muestra listado de Streams por categoria
 console.log("Listado de Streamers por Categoria: ")
